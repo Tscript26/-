@@ -2,18 +2,21 @@ from enum import IntEnum
 import pygame
 from pygame.locals import *
 
+# 版本号
 GAME_VERSION = 'V1.0'
 
 REC_SIZE = 50
-CHESS_RADIUS = REC_SIZE // 2 - 2
-CHESS_LEN = 15
-MAP_WIDTH = CHESS_LEN * REC_SIZE
-MAP_HEIGHT = CHESS_LEN * REC_SIZE
+CHESS_RADIUS = REC_SIZE // 2 - 2  # 棋盘半径？
+CHESS_LEN = 15  # 棋盘长度
+MAP_WIDTH = CHESS_LEN * REC_SIZE  # 棋盘宽度
+MAP_HEIGHT = CHESS_LEN * REC_SIZE  # 棋盘高度
 
+# 信息框大小，按钮大小
 INFO_WIDTH = 200
 BUTTON_WIDTH = 140
 BUTTON_HEIGHT = 50
 
+# 屏幕大小
 SCREEN_WIDTH = MAP_WIDTH + INFO_WIDTH
 SCREEN_HEIGHT = MAP_HEIGHT
 
@@ -103,7 +106,7 @@ class Map():
         for y in range(self.height):
             # draw a horizontal line
             start_pos, end_pos = (REC_SIZE // 2, REC_SIZE // 2 + REC_SIZE * y), (
-            MAP_WIDTH - REC_SIZE // 2, REC_SIZE // 2 + REC_SIZE * y)
+                MAP_WIDTH - REC_SIZE // 2, REC_SIZE // 2 + REC_SIZE * y)
             if y == (self.height) // 2:
                 width = 2
             else:
@@ -113,7 +116,7 @@ class Map():
         for x in range(self.width):
             # draw a horizontal line
             start_pos, end_pos = (REC_SIZE // 2 + REC_SIZE * x, REC_SIZE // 2), (
-            REC_SIZE // 2 + REC_SIZE * x, MAP_HEIGHT - REC_SIZE // 2)
+                REC_SIZE // 2 + REC_SIZE * x, MAP_HEIGHT - REC_SIZE // 2)
             if x == (self.width) // 2:
                 width = 2
             else:
@@ -124,6 +127,5 @@ class Map():
         pos = [(3, 3), (11, 3), (3, 11), (11, 11), (7, 7)]
         for (x, y) in pos:
             pygame.draw.rect(screen, color, (
-            REC_SIZE // 2 + x * REC_SIZE - rec_size // 2, REC_SIZE // 2 + y * REC_SIZE - rec_size // 2, rec_size,
-            rec_size))
-
+                REC_SIZE // 2 + x * REC_SIZE - rec_size // 2, REC_SIZE // 2 + y * REC_SIZE - rec_size // 2, rec_size,
+                rec_size))
